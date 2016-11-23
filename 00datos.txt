@@ -1,0 +1,8 @@
+Félix Mezo Gómez
+Asier Culebras Porras
+
+
+
+MEJORAS INTRODUCIDAS SOBRE EL ENUNCIADO DE LA PRÁCTICA:
+	- Contemplado empate en la partida.
+	- Añadida funcionalidad de primer turno aleatorio.
