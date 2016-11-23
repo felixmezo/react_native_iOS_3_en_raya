@@ -16,6 +16,16 @@ const EMPATE   = 3;
 
 const HISTORIAL = [];
 
+function getRandomTurn(){
+	var turno = Math.floor(Math.random() * 2);
+
+	if (turno === 0){
+		return JUGADORX;
+	}else{
+		return JUGADOR0;
+	}
+};
+
 var App = React.createClass({
 	_saveState:async function(){
 		try{
@@ -39,7 +49,7 @@ var App = React.createClass({
 	getInitialState: function () {
 		this._loadState();
 		return {
-			turno: JUGADORX,
+			turno: getRandomTurn(),
 			valores: VALORES,
 			partida: JUGANDO,
 			turnos0: 0,
@@ -88,7 +98,7 @@ var App = React.createClass({
 	},
 	resetClick: function(){
 		this.setState({
-			turno: JUGADORX,
+			turno: getRandomTurn(),
 			valores: [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']],
 			partida: JUGANDO,
 			turnos0: 0,
