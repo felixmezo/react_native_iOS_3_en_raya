@@ -31,12 +31,12 @@ var PartidaScene = React.createClass({
 						  onPress={this.props.resetClick} 
 						  text={"Reiniciar"} />
 				<Text style={styles.textoMovimientos}>CONTADOR DE MOVIMIENTOS</Text>
-				<ContadorMovimientos style={{flex:2}}
+				<ContadorMovimientos style={{flex:5}}
 									 movimientos={this.props.movimientos}
 									 turnosX = {this.props.turnosX}
 									 turnos0 = {this.props.turnos0} />
 				<Text style={styles.textoHistorial}>HISTORIAL DE MOVIMIENTOS</Text>					 
-				<Historial style={{flex:2}}
+				<Historial style={{flex:5}}
 						   historial={this.props.historial} />
 			</View> 
 		)

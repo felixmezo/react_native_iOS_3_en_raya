@@ -2,7 +2,6 @@ Félix Mezo Gómez
 Asier Culebras Porras
 
 
+Aplicación en iOS
 
-MEJORAS INTRODUCIDAS SOBRE EL ENUNCIADO DE LA PRÁCTICA:
-	- Contemplado empate en la partida.
-	- Añadida funcionalidad de primer turno aleatorio.
+Hechas todas las mejoras propuestas y alguna adicional
