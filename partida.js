@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 import MyButton from './src/js/MyButton';
 
@@ -13,8 +13,8 @@ var PartidaScene = React.createClass({
 		var texto = "Turno del " + this.props.turno; 
 		return (
 			<View style={{flex: 1, margin: 10}}>
-				<Cabecera texto={texto} />
-				<Tablero style={{flex:3}}
+				<Cabecera style={{flex: 1}} texto={texto} />
+				<Tablero style={{flex:25}}
 						 valores={this.props.valores}
 						 manejadorTableroClick={this.props.manejadorClick}
 						 partida={this.props.partida} />
@@ -30,13 +30,29 @@ var PartidaScene = React.createClass({
 				<MyButton style={{flex:1}} 
 						  onPress={this.props.resetClick} 
 						  text={"Reiniciar"} />
-				<ContadorMovimientos movimientos={this.props.movimientos}
+				<Text style={styles.textoMovimientos}>CONTADOR DE MOVIMIENTOS</Text>
+				<ContadorMovimientos style={{flex:2}}
+									 movimientos={this.props.movimientos}
 									 turnosX = {this.props.turnosX}
 									 turnos0 = {this.props.turnos0} />
-				<Historial historial={this.props.historial} />
+				<Text style={styles.textoHistorial}>HISTORIAL DE MOVIMIENTOS</Text>					 
+				<Historial style={{flex:2}}
+						   historial={this.props.historial} />
 			</View> 
 		)
 	} 
 });
 
+const styles = StyleSheet.create({
+	textoMovimientos: {
+		flex:1,
+		fontSize: 20,
+		fontWeight: "bold"
+	},
+	textoHistorial: {
+		flex:1,
+		fontSize: 20,
+		fontWeight: "bold"
+	}
+});
 export default PartidaScene;

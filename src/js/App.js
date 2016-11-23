@@ -13,17 +13,8 @@ const JUGANDO  = 0;
 const GANANX   = 1;
 const GANAN0   = 2;
 const EMPATE   = 3;
-var npulsaciones = 0;
 
-const HISTORIAL = ['Jugador de las X pulsó la casilla: ',
-				 'Jugador de los 0 pulsó la casilla: ',
-				 'Jugador de las X pulsó la casilla: ',
-				 'Jugador de los 0 pulsó la casilla: ',
-				 'Jugador de las X pulsó la casilla: ',
-				 'Jugador de los 0 pulsó la casilla: ',
-				 'Jugador de las X pulsó la casilla: ',
-				 'Jugador de los 0 pulsó la casilla: ',
-				 'Jugador de las X pulsó la casilla: ' ];
+const HISTORIAL = [];
 
 var App = React.createClass({
 	_saveState:async function(){
@@ -59,18 +50,18 @@ var App = React.createClass({
 		};
 	},
 	appclick: function(numeroFila, numeroColumna) {
-		npulsaciones++;
-
 		var historial = this.state.historial;
 		let ultimaPulsacion0 = this.state.ultimaPulsacion0;
 		let ultimaPulsacionX = this.state.ultimaPulsacionX;
 
 		if (this.state.turno === JUGADORX) {
 			ultimaPulsacionX = "( "+ (numeroFila+1)	+ ", " + (numeroColumna+1) +" )";
-			historial[npulsaciones-1]=historial[npulsaciones-1]+ultimaPulsacionX;
+			var textoAñadir= "El jugador X pulsó la casilla: " + ultimaPulsacionX;
+			historial.push(textoAñadir);
 		}else{
 			ultimaPulsacion0 = "( "+ (numeroFila+1)	+ ", " + (numeroColumna+1) +" )";
-			historial[npulsaciones-1]=historial[npulsaciones-1]+ultimaPulsacion0;
+			var textoAñadir= "El jugador 0 pulsó la casilla: " + ultimaPulsacion0;
+			historial.push(textoAñadir);
 		}
 
 		let turnosX = this.state.turnosX;
@@ -78,6 +69,7 @@ var App = React.createClass({
 		let valores = this.state.valores;
 		let nuevoValor = this.state.turno === JUGADORX ? 'X':'0';
 		valores[numeroFila][numeroColumna]=nuevoValor;
+
 		if (this.state.turno === JUGADORX){
 			turnosX=turnosX+1;
 		}else{
@@ -95,7 +87,6 @@ var App = React.createClass({
 		});
 	},
 	resetClick: function(){
-		npulsaciones = 0;
 		this.setState({
 			turno: JUGADORX,
 			valores: [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']],
@@ -104,15 +95,7 @@ var App = React.createClass({
 			turnosX: 0,
 			ultimaPulsacionX: "No ha empezado",
 			ultimaPulsacion0: "No ha empezado",
-			historial: ['Jugador de las X pulsó la casilla: ',
-				 'Jugador de los 0 pulsó la casilla: ',
-				 'Jugador de las X pulsó la casilla: ',
-				 'Jugador de los 0 pulsó la casilla: ',
-				 'Jugador de las X pulsó la casilla: ',
-				 'Jugador de los 0 pulsó la casilla: ',
-				 'Jugador de las X pulsó la casilla: ',
-				 'Jugador de los 0 pulsó la casilla: ',
-				 'Jugador de las X pulsó la casilla: ' ]
+			historial: []
 		});
 	},	
 	ganador: function(valores,turno){
