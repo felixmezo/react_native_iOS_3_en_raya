@@ -36,9 +36,13 @@ var Tablero = React.createClass({
 
 const styles = StyleSheet.create({
 	tablero:{
-		flex: 1,
+		flex: 4,
 		flexDirection: 'column',
-		justifyContent: 'space-between'
+		justifyContent: 'space-between',
+		borderBottomWidth: 1,
+		borderTopWidth: 1,
+		borderRightWidth: 1,
+		borderLeftWidth: 1,
 	},
 	fila:{
 		flex: 1,

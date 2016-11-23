@@ -13,9 +13,8 @@ var PartidaScene = React.createClass({
 		var texto = "Turno del " + this.props.turno; 
 		return (
 			<View style={{flex: 1, margin: 10}}>
-				<Cabecera style={{flex: 1}} texto={texto} />
-				<Tablero style={{flex:25}}
-						 valores={this.props.valores}
+				<Cabecera texto={texto} />
+				<Tablero valores={this.props.valores}
 						 manejadorTableroClick={this.props.manejadorClick}
 						 partida={this.props.partida} />
 				<MyButton style={{flex:1}}
@@ -46,12 +45,12 @@ var PartidaScene = React.createClass({
 const styles = StyleSheet.create({
 	textoMovimientos: {
 		flex:1,
-		fontSize: 20,
+		fontSize: 15,
 		fontWeight: "bold"
 	},
 	textoHistorial: {
 		flex:1,
-		fontSize: 20,
+		fontSize: 15,
 		fontWeight: "bold"
 	}
 });

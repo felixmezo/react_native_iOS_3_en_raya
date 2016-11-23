@@ -11,7 +11,7 @@ let ContadorMovimientos = React.createClass({
 	},
 	render: function () {
 		return (
-			<View style={{flex:1, marginTop:10}}>	
+			<View style={{flex:2}}>	
 				<ListView
 				  	dataSource={this.props.movimientos}
 				  	renderRow = {this._renderRow}

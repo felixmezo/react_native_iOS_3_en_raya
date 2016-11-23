@@ -11,7 +11,7 @@ let Historial = React.createClass({
 	},
 	render: function () {
 		return (
-			<View style={{flex:2, marginTop:5}}>	
+			<View style={{flex:2}}>	
 				<ListView
 				  	dataSource={this.props.historial}
 				  	renderRow = {this._renderRow}
