@@ -77,6 +77,7 @@ var App = React.createClass({
 		let turnosX = this.state.turnosX;
 		let turnos0 = this.state.turnos0;
 		let valores = this.state.valores;
+
 		let nuevoValor = this.state.turno === JUGADORX ? 'X':'0';
 		valores[numeroFila][numeroColumna]=nuevoValor;
 
@@ -138,6 +139,7 @@ var App = React.createClass({
 		var movimientos = ['Movimientos de las X:  ', 'Movimientos de los 0:  '];
 		movimientos[0]=movimientos[0]+this.state.turnosX;
 		movimientos[1]=movimientos[1]+this.state.turnos0;
+
 		var ds = new ListView.DataSource({rowHasChanged: function(r1, r2){return r1 !== r2 }});
 		movimientos = ds.cloneWithRows(movimientos);
 
